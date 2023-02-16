@@ -67,30 +67,5 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-const quoteDisplay = document.getElementById("quote-of-the-day");
-const refreshQuote = function() {
-var category = 'happiness';
-$.ajax({
-method: 'GET',
-url: 'https://api.api-ninjas.com/v1/quotes?category=' + category,
-headers: { 'X-Api-Key': 'uP40lh/wenPlJPt0hKovWA==mx10FGayl1XTNgTo'},
-contentType: 'application/json',
-success: function(result) {
-console.log(result);
-if (result.length > 0) {
-const quoteDisplay = document.getElementById("quote-of-the-day");
-quoteDisplay.innerText = result[0].quote;
-} else {
-console.error("No quotes found");
-}
-},
-error: function ajaxError(jqXHR) {
-console.error('Error: ', jqXHR.responseText);
-}
-});
-
-}
-
-refreshQuote();
 
 
